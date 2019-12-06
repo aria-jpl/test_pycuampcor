@@ -16,6 +16,9 @@
    ```
    docker pull isce/isce2:cuda-9.2
    ```
+   *Note*: This docker image was built from a fork (https://github.com/pymonger/isce2/tree/gpu-build)
+   of the official isce2 repo (https://github.com/isce-framework/isce2). The fork was updated to 
+   compile on centos 7 using CUDA version 9.2.
 1. Start up docker container and mount in this directory:
    ```
    docker run --rm -ti -u $ID:$(id -g) --gpus=all \
