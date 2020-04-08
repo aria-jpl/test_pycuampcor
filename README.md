@@ -12,18 +12,18 @@
    wget https://github.com/aria-jpl/test_pycuampcor/releases/download/v0.1/20110119.slc
    wget https://github.com/aria-jpl/test_pycuampcor/releases/download/v0.1/20110306.slc
    ```
-1. Pull the isce/isce2:cuda-9.2 (or hysds/isce2:2.3-cuda-9.2) docker image:
+1. Pull the hysds/isce2:latest-cuda docker image:
    ```
-   docker pull isce/isce2:cuda-9.2
+   docker pull hysds/isce2:latest-cuda
    ```
-   *Note*: This docker image was built from a fork (https://github.com/pymonger/isce2/tree/gpu-build)
+   *Note*: This docker image was built from a fork (https://github.com/pymonger/isce2/tree/develop)
    of the official isce2 repo (https://github.com/isce-framework/isce2). The fork was updated to 
    compile on centos 7 using CUDA version 9.2.
 1. Start up docker container and mount in this directory:
    ```
    docker run --rm -ti -u $ID:$(id -g) --gpus=all \
      -v $(pwd):/tmp/test_pycuampcor \
-     -w /tmp/test_pycuampcor isce/isce2:cuda-9.2
+     -w /tmp/test_pycuampcor hysds/isce2:latest-cuda
    ```
 1. In a separate terminal on the same instance, run the following
    command to monitor the GPU usage on the instance:
